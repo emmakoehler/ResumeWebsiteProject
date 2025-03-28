@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9; /* Light grey background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #fff; /* White background */
+    color: #333;
+    text-align: center;
+    padding: 10px 0; /* Reduced padding to make it smaller */
+    position: relative; /* Change position to static so it doesn't follow the page */
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem; /* Smaller font size */
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Navigation links in the header */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #4A90E2; /* Accent color on hover */
+}
+
+/* Sections */
+section {
+    max-width: 900px;
+    margin: 0 auto; /* Center the sections */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Adds space between sections */
+}
+
+/* About Me Section */
+#about {
+    background: #f7f7f7; /* Light grey background for contrast */
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 80px; /* Adds space between the header and the first section */
+}
+
+
+/* Skills Section */
+#skills {
+    background: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid for skills */
+    gap: 20px;
+}
+
+li {
+    background: #f4f4f9;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li:hover {
+    background: #e0e0e0; /* Slight darken on hover */
+    transform: translateY(-5px); /* Subtle hover effect */
+}
+
+/* Research Section */
+#research {
+    background: #fff; /* White background for contrast */
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 40px; /* Adds space between the previous section */
+}
+
+/* Styling for list items inside the Research section */
+#research ul {
+    list-style: none;
+    padding: 0;
+}
+
+#research li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+#research a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#research a:hover {
+    text-decoration: underline;
+}
+
+
+/* Contact Section */
+#contact {
+    background: #f7f7f7; /* Grey background for contrast */
+    padding: 30px;
+    border-radius: 8px;
+}
+
+a {
+    color: #4A90E2; /* Accent color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Adjust layout for smaller screens */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        margin: 80px 20px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Adjust skills grid for smaller screens */
+    ul {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    li {
+        padding: 12px;
+    }
+	
+}
+
+
+
+
+

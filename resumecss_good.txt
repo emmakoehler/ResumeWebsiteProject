@@ -67,6 +67,7 @@ section {
     margin-top: 80px; /* Adds space between the header and the first section */
 }
 
+
 /* Skills Section */
 #skills {
     background: #fff;
@@ -123,6 +124,7 @@ li:hover {
     text-decoration: underline;
 }
 
+
 /* Contact Section */
 #contact {
     background: #f7f7f7; /* Grey background for contrast */
@@ -165,4 +167,10 @@ a:hover {
     li {
         padding: 12px;
     }
+	
 }
+
+
+
+
+

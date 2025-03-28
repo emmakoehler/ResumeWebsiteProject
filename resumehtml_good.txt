@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emma Koehler - Resume</title>
     <link rel="stylesheet" href="resumecss.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -23,7 +23,7 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <div class="profile-img">
+		<div class="profile-img">
             <img src="headshot_picSwim.png" alt="Emma Koehler" width="200">
         </div>
         <p>I am a Computer Science major with a passion for marketing, events, and brand strategy. I specialize in creating impactful brand narratives, planning seamless events, and leveraging technology to enhance marketing strategies. My goal is to blend creativity with data-driven insights to drive engagement and business growth.</p>
@@ -41,22 +41,24 @@
             <li>Project Management & Team Leadership</li>
         </ul>
     </section>
+	
+	<section id="research">
+    <h2>Research & Projects</h2>
+    <p>Here is a list of my academic work and projects:</p>
+    <ul>
+        <li><strong>Research Paper: </strong><a href="https://www.ophthalmologyscience.org/article/S2666-9145(25)00055-7/fulltext" target="_blank">Ophthalmology Science Journal Paper</a></li>
+        <!-- Add more research or projects as needed -->
+    </ul>
+</section>
 
-    <section id="research">
-        <h2>Research & Projects</h2>
-        <p>Here is a list of my academic work and projects:</p>
-        <ul>
-            <li><strong>Research Paper: </strong><a href="https://www.ophthalmologyscience.org/article/S2666-9145(25)00055-7/fulltext" target="_blank">Ophthalmology Science Journal Paper</a></li>
-            <!-- Add more research or projects as needed -->
-        </ul>
-    </section>
+	<section id="contact">
+		<h2>Contact</h2>
+		<p><i class="fas fa-envelope"></i> Email: <a href="mailto:emma.elk321@gmail.com">emma.elk321@gmail.com</a></p>
+		<p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/emma-louise-koehler/" target="_blank">LinkedIn</a></p>
+		<p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/emmakoehler" target="_blank">github.com/emmakoehler</a></p>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:emma.elk321@gmail.com">emma.elk321@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/emma-louise-koehler/" target="_blank">LinkedIn</a></p>
-        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/emmakoehler" target="_blank">github.com/emmakoehler</a></p>
-    </section>
+	</section>
+
 
     <footer>
         <p>&copy; 2025 Emma Koehler | All Rights Reserved</p>

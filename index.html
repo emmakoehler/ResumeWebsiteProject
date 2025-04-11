@@ -80,14 +80,21 @@
         <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/emmakoehler" target="_blank">github.com/emmakoehler</a></p>
     </section>
 	
-	<div>
-		<h3>Leave Me a Note</h3>
-		<textarea id="noteInput" placeholder="Enter your note..."></textarea>
-		<button onclick="submitNote()">Submit Note</button>
-		<h4>Recent Notes</h4>
-		<div id="notesContainer"></div>
-	</div>
+	<section id="note">
+		<h2>Leave Me a Note</h2>
+		<p>Have a thought, comment, or question? Drop me a note below!</p>
 
+		<textarea id="noteInput"
+				  style="width: 100%; height: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"
+				  placeholder="Type your note here..." required></textarea>
+
+		<button onclick="submitNote()" 
+				style="margin-top: 15px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer;">
+		 Submit
+		</button>
+
+		<div id="notesContainer" style="margin-top: 20px;"></div>
+	</section>
 
     <footer>
         <p>&copy; 2025 Emma Koehler | All Rights Reserved</p>

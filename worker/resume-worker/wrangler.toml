@@ -1,0 +1,12 @@
+name = "resume-worker"  # The name of your Worker
+main = "index.js"  # This points to your Worker script (file name)
+type = "javascript"
+
+[build]
+  command = "npm install"
+
+[env.production]
+  name = "resume-worker"
+  account_id = "Qk4uHd2UqptbhuOb5Jykjv1EuKep9RXqZLQc1JuY"  # Replace with your Cloudflare account ID
+  workers_dev = true
+  route = ""  # Set this if you have a custom route to associate with the Worker

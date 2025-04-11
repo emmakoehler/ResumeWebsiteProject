@@ -31,14 +31,22 @@
 	
 	<section id="resume">
 		<h2>Download My Resume</h2>
-		<p>Click the link below to download my resume:</p>
-		<a href="Emma Koehler_Resume 2025 COPY.pdf" target="_blank">Download Resume (PDF)</a>
-	</section>
-	
-	<div>
-		<a href="path-to-your-resume.pdf" onclick="trackDownload()">Download My Resume</a>
+		<p>Click the button below to download my resume. This also helps me track how many times it's been downloaded!</p>
+
+	  <!-- Button that triggers tracking -->
+		<a 
+			href="Emma Koehler_Resume 2025 COPY.pdf" 
+			target="_blank" 
+			onclick="trackDownload()"
+			style="display: inline-block; margin: 10px 0; padding: 10px 15px; background-color: #007BFF; color: white; border-radius: 5px; text-decoration: none;"
+		>
+			Download Resume (PDF)
+		</a>
+
+	  <!-- Display download count -->
 		<p id="downloadCount"></p>
-	</div>
+	</section>
+
 
 
     <section id="skills">

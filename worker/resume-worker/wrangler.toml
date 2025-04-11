@@ -1,0 +1,8 @@
+name = "resume-worker"
+main = "src/index.js"  # adjust this if your path is different
+compatibility_date = "2025-04-11"
+workers_dev = true
+type = "javascript"
+
+[observability.logs]
+enabled = true

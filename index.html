@@ -34,6 +34,12 @@
 		<p>Click the link below to download my resume:</p>
 		<a href="Emma Koehler_Resume 2025 COPY.pdf" target="_blank">Download Resume (PDF)</a>
 	</section>
+	
+	<div>
+		<a href="path-to-your-resume.pdf" onclick="trackDownload()">Download My Resume</a>
+		<p id="downloadCount"></p>
+	</div>
+
 
     <section id="skills">
         <h2>Skills & Experience</h2>
@@ -65,6 +71,15 @@
         <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/emma-louise-koehler/" target="_blank">LinkedIn</a></p>
         <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/emmakoehler" target="_blank">github.com/emmakoehler</a></p>
     </section>
+	
+	<div>
+		<h3>Leave Me a Note</h3>
+		<textarea id="noteInput" placeholder="Enter your note..."></textarea>
+		<button onclick="submitNote()">Submit Note</button>
+		<h4>Recent Notes</h4>
+		<div id="notesContainer"></div>
+	</div>
+
 
     <footer>
         <p>&copy; 2025 Emma Koehler | All Rights Reserved</p>

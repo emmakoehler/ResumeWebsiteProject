@@ -11,11 +11,11 @@ Project Structure
 /worker: Contains the Cloudflare Worker script (index.js) that manages API routes for tracking downloads and handling user-submitted notes.
 
 Features Implemented
-Resume Download Button: A button allows users to download my resume. A Cloudflare Worker is designed to track each download. The resume file is in the repository, but currently, the download is not functioning correctly on the deployed site. This is a known issue and still in progress.
+Resume Download Button: A button allows users to download my resume. A Cloudflare Worker is designed to track each download.
 
-Note Submission Form: Visitors can leave a message through a form, which is sent to the Worker and stored in memory. The five most recent notes are displayed on the page. The note worker is not functioning properly, but the notes are being diplayed on the site.
+Note Submission Form: Visitors can leave a message through a form, which is sent to the Worker and stored in memory. The five most recent notes are displayed on the page. 
 
-Download Counter: Displays the total number of times the resume has been downloaded (when the tracking is working correctly).
+Download Counter: Displays the total number of times the resume has been downloaded.
 
 How to Run and Test Locally
 Clone the repository:

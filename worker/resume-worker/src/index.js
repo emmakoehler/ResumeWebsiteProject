@@ -1,64 +1,65 @@
-let downloadCount = 0;
-let notes = [];
+let downloadCount = 0; // Track resume downloads
+let notes = []; // Store submitted notes
 
 export default {
   async fetch(request) {
+    const url = new URL(request.url);
     const { method } = request;
 
-    // Define the origin that is allowed to make requests
-    const allowedOrigin = 'https://resumewebsiteproject.pages.dev'; // Your static website's URL
-
-    // Add CORS headers
-    const headers = {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': allowedOrigin, // Allow your static site to access this resource
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', // Allow these methods
-      'Access-Control-Allow-Headers': 'Content-Type', // Allow the Content-Type header
+    // ✅ Correct CORS Headers to Allow Your Website
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': 'https://resumewebsiteproject.pages.dev', // Removed trailing slash
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
     };
 
-    // Handle OPTIONS preflight requests (important for CORS)
+    // ✅ Handle Preflight (OPTIONS) Requests
     if (method === 'OPTIONS') {
-      return new Response(null, {
-        status: 204,
-        headers: headers,
-      });
+      return new Response('', { status: 204, headers: corsHeaders });
     }
 
-    // Handle POST requests (e.g., note submission, resume download tracking)
+    // ✅ Handle POST Requests (Submit Notes & Track Downloads)
     if (method === 'POST') {
       const contentType = request.headers.get('content-type') || '';
       if (contentType.includes('application/json')) {
         const body = await request.json();
 
-        // Resume download tracking
-        if (body.download) {
+        if (url.pathname === '/trackDownload' && body.download) {
           downloadCount++;
           return new Response(JSON.stringify({ message: 'Download tracked!' }), {
-            headers: headers,
+            headers: { 'Content-Type': 'application/json', ...corsHeaders },
           });
         }
 
-        // Note submission
-        if (body.note) {
+        if (url.pathname === '/comments' && body.note) {
           notes.push({ note: body.note, timestamp: Date.now() });
           return new Response(JSON.stringify({ message: 'Note received!' }), {
-            headers: headers,
+            headers: { 'Content-Type': 'application/json', ...corsHeaders },
           });
         }
       }
     }
 
-    // Handle GET requests (e.g., show current stats)
+    // ✅ Handle GET Requests (Retrieve Notes & Download Count)
     if (method === 'GET') {
-      return new Response(
-        JSON.stringify({
-          count: downloadCount,
-          notes: notes.slice(-5).reverse(), // send last 5 notes, newest first
-        }),
-        { headers: headers }
-      );
+      if (url.pathname === '/trackDownload') {
+        return new Response(JSON.stringify({ count: downloadCount }), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
+
+      if (url.pathname === '/comments') {
+        return new Response(
+          JSON.stringify({ notes: Array.isArray(notes) ? notes.slice(-5).reverse() : [] }),
+          { headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+        );
+      }
     }
 
-    return new Response('Not Found', { status: 404, headers: headers });
+    // ✅ Return 404 for Unrecognized Routes
+    return new Response(
+      JSON.stringify({ error: 'Route not found. Valid routes: /comments, /trackDownload' }),
+      { status: 404, headers: corsHeaders }
+    );
   },
 };

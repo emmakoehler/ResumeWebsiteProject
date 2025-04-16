@@ -1,72 +1,92 @@
 document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-    });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
+// ✅ Load recent notes
+async function loadNotes() {
+  try {
+    const response = await fetch('https://resume-worker.emma-elk321.workers.dev/comments'); // Use correct path
 
+    if (!response.ok) {
+      throw new Error(`Failed to load notes: ${response.status}`);
+    }
 
-// Function to submit a note
+    const data = await response.json();
+
+    if (data.notes && Array.isArray(data.notes)) {
+      document.getElementById('notesContainer').innerHTML = data.notes
+        .map(note => `<p><strong>${new Date(note.timestamp).toLocaleString()}</strong>: ${note.note}</p>`)
+        .join('');
+    } else {
+      document.getElementById('notesContainer').innerHTML = '<p>No notes available.</p>';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// ✅ Submit a note
 async function submitNote() {
   const note = document.getElementById('noteInput').value;
   if (note.trim() === '') return alert('Please enter a note!');
 
-  const response = await fetch('https://resume-worker.emma-elk321.workers.dev', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ note }),
-  });
+  try {
+    const response = await fetch('https://resume-worker.emma-elk321.workers.dev/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ note }),
+    });
 
-  if (response.ok) {
-    alert('Note submitted!');
-    loadNotes(); // Reload the notes after submission
-  } else {
-    alert('Failed to submit note!');
+    if (response.ok) {
+      alert('Note submitted!');
+      loadNotes(); // Reload notes
+    } else {
+      throw new Error(`Failed to submit note: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
-// Function to load recent notes
-async function loadNotes() {
-  const response = await fetch('https://resume-worker.emma-elk321.workers.dev');
-  const notes = await response.json();
-
-  const notesContainer = document.getElementById('notesContainer');
-  notesContainer.innerHTML = notes
-    .map(note => `<p><strong>${new Date(note.timestamp).toLocaleString()}</strong>: ${note.note}</p>`)
-    .join('');
-}
-
-// Load notes when the page loads
-document.addEventListener('DOMContentLoaded', loadNotes);
-
-
-
-// Function to track download count
+// ✅ Track resume downloads
 async function trackDownload() {
-  const response = await fetch('https://resume-worker.emma-elk321.workers.dev', {
-    method: 'POST',
-  });
+  try {
+    const response = await fetch('https://resume-worker.emma-elk321.workers.dev/trackDownload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ download: true }),
+    });
 
-  if (response.ok) {
-    loadDownloadCount(); // Reload the count
-  } else {
-    alert('Failed to track download.');
+    if (response.ok) {
+      loadDownloadCount(); // Reload the count
+    } else {
+      throw new Error(`Failed to track download: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
-// Function to display download count
+// ✅ Load resume download count
 async function loadDownloadCount() {
-  const response = await fetch('https://resume-worker.emma-elk321.workers.dev');
-  const data = await response.json();
+  try {
+    const response = await fetch('https://resume-worker.emma-elk321.workers.dev/trackDownload'); // Use correct path
 
-  document.getElementById('downloadCount').innerText = `Resume has been downloaded ${data.count} times.`;
+    if (!response.ok) {
+      throw new Error(`Failed to load download count: ${response.status}`);
+    }
+
+    const data = await response.json();
+    document.getElementById('downloadCount').innerText = `Resume has been downloaded ${data.count} times.`;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-// Load the download count when the page loads
+// ✅ Ensure notes and download count load when the page loads
+document.addEventListener('DOMContentLoaded', loadNotes);
 document.addEventListener('DOMContentLoaded', loadDownloadCount);
-
-

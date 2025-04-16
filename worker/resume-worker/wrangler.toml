@@ -1,8 +1,10 @@
 name = "resume-worker"
-main = "src/index.js"  # adjust this if your path is different
+main = "src/index.js"
 compatibility_date = "2025-04-11"
-workers_dev = true
 type = "javascript"
+
+[build]
+command = "npm install"
 
 [observability.logs]
 enabled = true

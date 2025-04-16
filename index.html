@@ -26,36 +26,37 @@
         <div class="profile-img">
             <img src="headshot_picSwim.png" alt="Emma Koehler" width="200">
         </div>
-        <p>I am a Computer Science major and D1 athlete at Long Island University with a passion for marketing, events, and brand strategy. I specialize in creating impactful brand narratives, planning seamless events, and leveraging technology to enhance marketing strategies. My goal is to blend creativity with data-driven insights to drive engagement and business growth.</p>
+        <p>
+            I am a Computer Science major and D1 athlete at Long Island University with a passion for marketing, events, and brand strategy. 
+            I specialize in creating impactful brand narratives, planning seamless events, and leveraging technology to enhance marketing strategies. 
+            My goal is to blend creativity with data-driven insights to drive engagement and business growth.
+        </p>
     </section>
-	
-	<section id="resume">
-		<h2>Download My Resume</h2>
-		<p>Click the button below to download my resume. This also helps me track how many times it's been downloaded!</p>
 
-	  <!-- Button that triggers tracking -->
-		<a 
-			href="Emma Koehler_Resume 2025 COPY.pdf" 
-			target="_blank" 
-			onclick="trackDownload()"
-			style="display: inline-block; margin: 10px 0; padding: 10px 15px; background-color: #007BFF; color: white; border-radius: 5px; text-decoration: none;"
-		>
-			Download Resume (PDF)
-		</a>
+    <section id="resume">
+        <h2>Download My Resume</h2>
+        <p>Click the button below to download my resume. This also helps me track how many times it's been downloaded!</p>
 
-	  <!-- Display download count -->
-		<p id="downloadCount"></p>
-	</section>
+        <!-- Button that triggers tracking -->
+        <a 
+            href="Emma_Koehler_Resume_2025.pdf" 
+            target="_blank" 
+            onclick="event.preventDefault(); trackDownload();"
+            style="display: inline-block; margin: 10px 0; padding: 10px 15px; background-color: #007BFF; color: white; border-radius: 5px; text-decoration: none;">
+            Download Resume (PDF)
+        </a>
 
-
+        <!-- Display download count -->
+        <p id="downloadCount"></p>
+    </section>
 
     <section id="skills">
         <h2>Skills & Experience</h2>
         <ul>
             <li>Marketing & Brand Strategy</li>
-			<li>Web Development</li>
+            <li>Web Development</li>
             <li>Event Planning & Hospitality</li>
-			<li>Data Analysis & Visualization</li>
+            <li>Data Analysis & Visualization</li>
             <li>Sales & Customer Engagement</li>
             <li>AI & Technology Awareness</li>
             <li>Content Marketing & Social Media Management</li>
@@ -69,7 +70,6 @@
         <p>Here is a list of my academic work and projects:</p>
         <ul>
             <li><strong>Research Paper: </strong><a href="https://www.ophthalmologyscience.org/article/S2666-9145(25)00055-7/fulltext" target="_blank">Ophthalmology Science Journal Paper</a></li>
-            <!-- Add more research or projects as needed -->
         </ul>
     </section>
 
@@ -79,28 +79,29 @@
         <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/emma-louise-koehler/" target="_blank">LinkedIn</a></p>
         <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/emmakoehler" target="_blank">github.com/emmakoehler</a></p>
     </section>
-	
-	<section id="note">
-		<h2>Leave Me a Note</h2>
-		<p>Have a thought, comment, or question? Drop me a note below!</p>
 
-		<textarea id="noteInput"
-				  style="width: 100%; height: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"
-				  placeholder="Type your note here..." required></textarea>
+    <section id="note">
+        <h2>Leave Me a Note</h2>
+        <p>Have a thought, comment, or question? Drop me a note below!</p>
 
-		<button 
-		 onclick="submitNote()"
-		 style="margin-top: 15px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer;">
-		 Submit
-		</button>
+        <textarea id="noteInput"
+                  style="width: 100%; height: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; resize: vertical;"
+                  placeholder="Type your note here..." required></textarea>
 
+        <button 
+            onclick="submitNote()"
+            style="margin-top: 15px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer;">
+            Submit
+        </button>
 
-		<div id="notesContainer" style="margin-top: 20px;"></div>
-	</section>
+        <div id="notesContainer" style="margin-top: 20px;"></div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Emma Koehler | All Rights Reserved</p>
     </footer>
-	<script src="ResumeJAVA.js"></script>
+
+    <!-- Link to JavaScript file -->
+    <script src="ResumeJAVA.js"></script>
 </body>
 </html>

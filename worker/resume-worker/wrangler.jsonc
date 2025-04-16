@@ -2,14 +2,13 @@
   "name": "resume-worker",
   "compatibility_date": "2025-04-11",  // Ensure this is the current date
   "main": "./src/index.js",  // Correct path to the Worker script inside the src folder
-  "type": "javascript",
   "build": {
     "command": "npm install"
   },
   "env": {
     "production": {
       "name": "resume-worker",
-      "account_id": "Qk4uHd2UqptbhuOb5Jykjv1EuKep9RXqZLQc1JuY",  // Replace with your Cloudflare account ID
+      "account_id": "6c10a435f87e133bd7929eb2e549e932",  // Replace with your Cloudflare account ID
       "workers_dev": true,
       "route": ""  // Set this if you have a custom route for your Worker
     }

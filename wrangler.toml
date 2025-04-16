@@ -1,0 +1,10 @@
+name = "resume-worker"
+main = "src/index.js"
+compatibility_date = "2025-04-11"
+type = "javascript"
+
+[build]
+command = "npm install"
+
+[observability.logs]
+enabled = true

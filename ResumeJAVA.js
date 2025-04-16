@@ -6,7 +6,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
   });
 });
 
-// ✅ Load recent notes
+// Load recent notes
 async function loadNotes() {
   try {
     const response = await fetch('https://resume-worker.emma-elk321.workers.dev/comments'); // Use correct path
@@ -29,7 +29,7 @@ async function loadNotes() {
   }
 }
 
-// ✅ Submit a note
+// Submit a note
 async function submitNote() {
   const note = document.getElementById('noteInput').value;
   if (note.trim() === '') return alert('Please enter a note!');
@@ -52,7 +52,7 @@ async function submitNote() {
   }
 }
 
-// ✅ Track resume downloads
+// Track resume downloads
 async function trackDownload() {
   try {
     const response = await fetch('https://resume-worker.emma-elk321.workers.dev/trackDownload', {
@@ -71,7 +71,7 @@ async function trackDownload() {
   }
 }
 
-// ✅ Load resume download count
+// Load resume download count
 async function loadDownloadCount() {
   try {
     const response = await fetch('https://resume-worker.emma-elk321.workers.dev/trackDownload'); // Use correct path
@@ -87,6 +87,6 @@ async function loadDownloadCount() {
   }
 }
 
-// ✅ Ensure notes and download count load when the page loads
+// Ensure notes and download count load when the page loads
 document.addEventListener('DOMContentLoaded', loadNotes);
 document.addEventListener('DOMContentLoaded', loadDownloadCount);

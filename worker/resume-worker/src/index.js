@@ -26,8 +26,16 @@ export default {
 
         if (url.pathname === '/trackDownload' && body.download) {
           downloadCount++;
-          return new Response(JSON.stringify({ message: 'Download tracked!' }), {
-            headers: { 'Content-Type': 'application/json', ...corsHeaders },
+
+          // Redirect to the resume download URL after tracking
+          return new Response(null, {
+            status: 302, // HTTP 302 redirect
+            headers: {
+              'Location': 'https://yourdomain.com/Emma_Koehler_Resume_2025_COPY.pdf', // Change this to your actual resume file URL
+              'Access-Control-Allow-Origin': 'https://resumewebsiteproject.pages.dev',
+              'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+              'Access-Control-Allow-Headers': 'Content-Type',
+            }
           });
         }
 
